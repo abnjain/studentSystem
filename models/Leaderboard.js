@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
 
-const TestResult = sequelize.define('TestResult', {
+const Leaderboard = sequelize.define('Leaderboard', {
   student_id: {
     type: DataTypes.INTEGER,
     allowNull: false
@@ -14,10 +14,10 @@ const TestResult = sequelize.define('TestResult', {
     type: DataTypes.FLOAT,
     allowNull: false
   },
-  feedback: {
-    type: DataTypes.TEXT,
-    allowNull: true
+  rank: {
+    type: DataTypes.INTEGER,
+    allowNull: false
   }
 });
 
-module.exports = TestResult;
+module.exports = Leaderboard;
