@@ -17,7 +17,9 @@ This is the backend for the **Student System** project, built using **Node.js**,
 ---
 
 ## Folder Structure
-backend/ ├── app.js # Main entry point for the backend ├── config/ 
+backend/ 
+├── app.js # Main entry point for the backend 
+├── config/ 
 │ └── db.js # Database configuration 
 ├── controllers/ # API controllers 
 │ ├── authController.js 
@@ -77,17 +79,17 @@ backend/ ├── app.js # Main entry point for the backend ├── config/
    git clone https://github.com/abnjain/student_system.git
    cd student_system/backend
 2. Install dependencies:
-
-npm install
+    ```bash
+    npm install
 
 3. Create a .env file in the backend folder with the following variables:
-
-DB_NAME=student_system
-DB_USER=root
-DB_PASS=your_password
-DB_HOST=localhost
-DB_PORT=3306
-JWT_SECRET=your_jwt_secret
+    ```bash
+    DB_NAME=student_system
+    DB_USER=root
+    DB_PASS=your_password
+    DB_HOST=localhost
+    DB_PORT=3306
+    JWT_SECRET=your_jwt_secret
 
 4. Set up the database:
 
@@ -108,13 +110,12 @@ nodemon start
 
 2. The server will run on http://localhost:{PORT} by default.
 
-### API Endpoints
+## API Endpoints
 # Authentication
-
-POST /api/auth/register: Register a new user
-POST /api/auth/login: Login and get a token
-POST /api/auth/refresh: Refresh the token
-POST /api/auth/logout: Logout the user
+    POST /api/auth/register: Register a new user
+    POST /api/auth/login: Login and get a token
+    POST /api/auth/refresh: Refresh the token
+    POST /api/auth/logout: Logout the user
 
 # Super Admin
 
@@ -144,14 +145,14 @@ DELETE /api/study-materials/:id: Delete a study material
 
 GET /api/leaderboard: Get leaderboard data
 
-### Security Features
+## Security Features
 
 JWT Authentication: Secure token-based authentication.
 Input Validation: Middleware to validate user input.
 Rate Limiting: Prevent brute force attacks.
 XSS Protection: Middleware to sanitize input.
 
-### Contributing
+## Contributing
 Contributions are welcome! Please fork the repository and submit a pull request.
 
 ### Contact
