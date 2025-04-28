@@ -106,39 +106,40 @@ This is the backend for the **Student System** project, built using **Node.js**,
 
 1. Start the server:
 
-nodemon start
+    nodemon start || node start
 
 2. The server will run on http://localhost:{PORT} by default.
 
 ## API Endpoints
-# Authentication
+
+### Authentication
     POST /api/auth/register: Register a new user
     POST /api/auth/login: Login and get a token
     POST /api/auth/refresh: Refresh the token
     POST /api/auth/logout: Logout the user
 
-# Super Admin
+### Super Admin
     GET /api/super-admin: Get all super admins
     GET /api/super-admin/:id: Get a super admin by ID
     POST /api/super-admin: Create a new super admin
     PUT /api/super-admin/:id: Update a super admin
     DELETE /api/super-admin/:id: Delete a super admin
 
-# Students
+### Students
     GET /api/students: Get all students
     GET /api/students/:id: Get a student by ID
     POST /api/students: Create a new student
     PUT /api/students/:id: Update a student
     DELETE /api/students/:id: Delete a student
 
-# Study Materials
+### Study Materials
     GET /api/study-materials: Get all study materials
     GET /api/study-materials/:id: Get a study material by ID
     POST /api/study-materials: Create a new study material
     PUT /api/study-materials/:id: Update a study material
     DELETE /api/study-materials/:id: Delete a study material
 
-# Leaderboards
+### Leaderboards
     GET /api/leaderboard: Get leaderboard data
 
 ## Security Features
@@ -151,7 +152,7 @@ XSS Protection: Middleware to sanitize input.
 ## Contributing
 Contributions are welcome! Please fork the repository and submit a pull request.
 
-### Contact
+# Contact
 For any inquiries, please contact:
 
 Email: abnjain25@gmail.com
@@ -159,6 +160,6 @@ GitHub: https://github.com/abnjain
 
 ---
 
-### Notes:
+# Notes:
 - Replace placeholders like `your-repo`, `your_password`, `your_jwt_secret`, and `your_email@example.com` with actual values.
 - Add or remove sections based on your specific project requirements.
