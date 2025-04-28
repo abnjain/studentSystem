@@ -1,0 +1,98 @@
+const { StudyMaterial } = require('../models/StudyMaterial');
+
+// Get All Study Materials
+exports.getAllMaterials = async (req, res) => {
+  try {
+    const materials = await StudyMaterial.findAll();
+    res.status(200).json(materials);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error', error });
+  }
+};
+
+// Get Study Material by ID
+exports.getMaterialById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const material = await StudyMaterial.findByPk(id);
+
+    if (!material) {
+      return res.status(404).json({ message: 'Study material not found' });
+    }
+
+    res.status(200).json(material);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error', error });
+  }
+};
+
+// Create a New Study Material
+exports.createMaterial = async (req, res) => {
+  try {
+    const { title, description, category, level, subject_id, file_url } = req.body;
+
+    const newMaterial = await StudyMaterial.create({
+      title,
+      description,
+      category,
+      level,
+      subject_id,
+      file_url,
+    });
+
+    res.status(201).json({ message: 'Study material created successfully', material: newMaterial });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error', error });
+  }
+};
+
+// Update a Study Material
+exports.updateMaterial = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { title, description, category, level, subject_id, file_url } = req.body;
+
+    const material = await StudyMaterial.findByPk(id);
+
+    if (!material) {
+      return res.status(404).json({ message: 'Study material not found' });
+    }
+
+    await material.update({
+      title,
+      description,
+      category,
+      level,
+      subject_id,
+      file_url,
+    });
+
+    res.status(200).json({ message: 'Study material updated successfully', material });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error', error });
+  }
+};
+
+// Delete a Study Material
+exports.deleteMaterial = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const material = await StudyMaterial.findByPk(id);
+
+    if (!material) {
+      return res.status(404).json({ message: 'Study material not found' });
+    }
+
+    await material.destroy();
+
+    res.status(200).json({ message: 'Study material deleted successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error', error });
+  }
+};
