@@ -17,49 +17,49 @@ This is the backend for the **Student System** project, built using **Node.js**,
 ---
 
 ## Folder Structure
-backend/ 
-├── app.js # Main entry point for the backend 
-├── config/ 
-│ └── db.js # Database configuration 
-├── controllers/ # API controllers 
-│ ├── authController.js 
-│ ├── leaderboardController.js 
-│ ├── studentController.js 
-│ ├── studyMaterialController.js 
-│ └── superAdminController.js 
-├── middlewares/ # Custom middleware 
-│ ├── authMiddlewares.js 
-│ ├── errorHandler.js 
-│ ├── rateLimiter.js 
-│ ├── validateInput.js 
-│ └── xssClean.js 
-├── models/ # Sequelize models 
-│ ├── AdminProfile.js 
-│ ├── Leaderboard.js 
-│ ├── Payment.js 
-│ ├── StudentProfile.js 
-│ ├── StudyMaterial.js 
-│ ├── SuperAdmin.js 
-│ ├── TeacherProfile.js 
-│ ├── Test.js 
-│ ├── TestResult.js 
-│ ├── Token.js 
-│ └── User.js 
-├── routes/ # API routes 
-│ ├── authRoutes.js 
-│ ├── leaderboardRoutes.js 
-│ ├── studentRoutes.js 
-│ ├── studyMaterialRoutes.js 
-│ └── superAdminRoutes.js 
-├── seeders/ # Database seeders 
-├── sql-scripts/ # SQL scripts for database setup 
-├── utils/ # Utility functions 
-│ ├── tokenUtils.js 
-│ └── other utilities... 
-├── .env # Environment variables 
-├── .gitignore # Git ignore file 
-├── package.json # Node.js dependencies 
-└── README.md # Project documentation
+        backend/ 
+        ├── app.js # Main entry point for the backend 
+        ├── config/ 
+        │ └── db.js # Database configuration 
+        ├── controllers/ # API controllers 
+        │ ├── authController.js 
+        │ ├── leaderboardController.js 
+        │ ├── studentController.js 
+        │ ├── studyMaterialController.js 
+        │ └── superAdminController.js 
+        ├── middlewares/ # Custom middleware 
+        │ ├── authMiddlewares.js 
+        │ ├── errorHandler.js 
+        │ ├── rateLimiter.js 
+        │ ├── validateInput.js 
+        │ └── xssClean.js 
+        ├── models/ # Sequelize models 
+        │ ├── AdminProfile.js 
+        │ ├── Leaderboard.js 
+        │ ├── Payment.js 
+        │ ├── StudentProfile.js 
+        │ ├── StudyMaterial.js 
+        │ ├── SuperAdmin.js 
+        │ ├── TeacherProfile.js 
+        │ ├── Test.js 
+        │ ├── TestResult.js 
+        │ ├── Token.js 
+        │ └── User.js 
+        ├── routes/ # API routes 
+        │ ├── authRoutes.js 
+        │ ├── leaderboardRoutes.js 
+        │ ├── studentRoutes.js 
+        │ ├── studyMaterialRoutes.js 
+        │ └── superAdminRoutes.js 
+        ├── seeders/ # Database seeders 
+        ├── sql-scripts/ # SQL scripts for database setup 
+        ├── utils/ # Utility functions 
+        │ ├── tokenUtils.js 
+        │ └── other utilities... 
+        ├── .env # Environment variables 
+        ├── .gitignore # Git ignore file 
+        ├── package.json # Node.js dependencies 
+        └── README.md # Project documentation
 
 ---
 
@@ -118,32 +118,28 @@ nodemon start
     POST /api/auth/logout: Logout the user
 
 # Super Admin
-
-GET /api/super-admin: Get all super admins
-GET /api/super-admin/:id: Get a super admin by ID
-POST /api/super-admin: Create a new super admin
-PUT /api/super-admin/:id: Update a super admin
-DELETE /api/super-admin/:id: Delete a super admin
+    GET /api/super-admin: Get all super admins
+    GET /api/super-admin/:id: Get a super admin by ID
+    POST /api/super-admin: Create a new super admin
+    PUT /api/super-admin/:id: Update a super admin
+    DELETE /api/super-admin/:id: Delete a super admin
 
 # Students
-
-GET /api/students: Get all students
-GET /api/students/:id: Get a student by ID
-POST /api/students: Create a new student
-PUT /api/students/:id: Update a student
-DELETE /api/students/:id: Delete a student
+    GET /api/students: Get all students
+    GET /api/students/:id: Get a student by ID
+    POST /api/students: Create a new student
+    PUT /api/students/:id: Update a student
+    DELETE /api/students/:id: Delete a student
 
 # Study Materials
-
-GET /api/study-materials: Get all study materials
-GET /api/study-materials/:id: Get a study material by ID
-POST /api/study-materials: Create a new study material
-PUT /api/study-materials/:id: Update a study material
-DELETE /api/study-materials/:id: Delete a study material
+    GET /api/study-materials: Get all study materials
+    GET /api/study-materials/:id: Get a study material by ID
+    POST /api/study-materials: Create a new study material
+    PUT /api/study-materials/:id: Update a study material
+    DELETE /api/study-materials/:id: Delete a study material
 
 # Leaderboards
-
-GET /api/leaderboard: Get leaderboard data
+    GET /api/leaderboard: Get leaderboard data
 
 ## Security Features
 
