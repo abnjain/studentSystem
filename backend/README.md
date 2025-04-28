@@ -72,6 +72,7 @@ backend/ ├── app.js # Main entry point for the backend ├── config/
 ## Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/abnjain/student_system.git
    cd student_system/backend
