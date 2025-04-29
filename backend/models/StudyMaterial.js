@@ -1,6 +1,4 @@
-const { DataTypes } = require('sequelize');
-const { sequelize } = require('../config/db');
-
+module.exports = (sequelize, DataTypes) => {
 const StudyMaterial = sequelize.define('StudyMaterial', {
   title: {
     type: DataTypes.STRING,
@@ -23,5 +21,5 @@ const StudyMaterial = sequelize.define('StudyMaterial', {
     allowNull: false
   }
 });
-
-module.exports = StudyMaterial;
+return StudyMaterial;
+};

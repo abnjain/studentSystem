@@ -14,15 +14,17 @@ import "../src/style/icon/fontawesome/css/fontawesome.min.css";
 import "../src/style/icon/fontawesome/css/all.min.css";
 import "../src/style/icon/ionic/ionicons.css";
 import "../src/style/icon/tabler-icons/webfont/tabler-icons.css";
-import ALLRoutes from "./feature-module/router/router";
+import ALLRoutes from "./feature-module/router/router";  // your routes
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
     <Provider store={store}>
+      {/* ✅ Make sure ALLRoutes is wrapped inside BrowserRouter */}
       <BrowserRouter basename={base_path}>
         <ALLRoutes />
       </BrowserRouter>

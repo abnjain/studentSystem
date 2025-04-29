@@ -1,6 +1,4 @@
-const { DataTypes } = require('sequelize');
-const { sequelize } = require('../config/db');
-
+module.exports = (sequelize, DataTypes) => {
 const SuperAdmin = sequelize.define('SuperAdmin', {
   id: {
     type: DataTypes.INTEGER,
@@ -32,5 +30,5 @@ const SuperAdmin = sequelize.define('SuperAdmin', {
   tableName: 'SuperadminProfiles',
   timestamps: false,
 });
-
-module.exports = SuperAdmin;
+return SuperAdmin;
+}

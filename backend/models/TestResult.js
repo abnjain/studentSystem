@@ -1,6 +1,4 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('../config/db');
-
+module.exports = (sequelize, DataTypes) => {
 const TestResult = sequelize.define('TestResult', {
   student_id: {
     type: DataTypes.INTEGER,
@@ -19,5 +17,5 @@ const TestResult = sequelize.define('TestResult', {
     allowNull: true
   }
 });
-
-module.exports = TestResult;
+return TestResult;
+}

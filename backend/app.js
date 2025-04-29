@@ -3,7 +3,10 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const dotenv = require('dotenv');
 dotenv.config();
-const { sequelize } = require('./config/db');
+// const { sequelize, syncModels } = require('./sql-scripts/models');
+const { sequelize, syncModels } = require('./config/db');
+const seedDatabase = require('./seeders/seeder');
+
 
 const authRoutes = require('./routes/authRoutes');
 const superAdminRoutes = require('./routes/superAdminRoutes');
@@ -28,6 +31,9 @@ const PORT = process.env.PORT || 4000;
 app.listen(PORT, async () => {
   try {
     await sequelize.authenticate();
+    console.log(`✅ Connected to DB`);
+    await syncModels(); // Create tables
+    // seedDatabase();
     console.log(`🚀 Server running on port ${PORT}`);
   } catch (error) {
     console.error('❌ Database connection failed:', error);

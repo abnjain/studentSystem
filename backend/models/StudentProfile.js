@@ -1,6 +1,4 @@
-const { DataTypes } = require('sequelize');
-const { sequelize } = require('../config/db');
-
+module.exports = (sequelize, DataTypes) => {
 const StudentProfile = sequelize.define('StudentProfile', {
   id: {
     type: DataTypes.INTEGER,
@@ -47,5 +45,5 @@ const StudentProfile = sequelize.define('StudentProfile', {
   tableName: 'StudentProfile',
   timestamps: false, // Disable Sequelize's automatic timestamps
 });
-
-module.exports = StudentProfile;
+return StudentProfile;
+};

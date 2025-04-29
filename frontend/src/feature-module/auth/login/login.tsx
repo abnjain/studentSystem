@@ -2,8 +2,39 @@ import React, { useEffect, useState } from "react";
 import ImageWithBasePath from "../../../core/common/imageWithBasePath";
 import { Link } from "react-router-dom";
 import { all_routes } from "../../router/all_routes";
+import loginUser from "../../../api/authApi";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
+
 
 const Login = () => {
+
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [errorMessage, setErrorMessage] = useState<string | null>(null); // For error handling
+  const navigate = useNavigate(); // Initialize useNavigate
+
+  const handleLogin = async () => {
+    try {
+      // Call the loginUser API with email and password
+      const response = await loginUser(email, password);
+
+      // Assuming the API returns a token or user data on success
+      if (response.data.token) {
+        localStorage.setItem("authToken", response.data.token); // Store token in localStorage
+        console.log("Logged in successfully", response.data);
+
+        // Redirect to the dashboard
+        navigate(all_routes.adminDashboard);
+      } else {
+        throw new Error("Invalid login credentials");
+      }
+    } catch (error: any) {
+      console.error("Failed to login", error);
+      setErrorMessage(error.response?.data?.message || "Login failed. Please try again.");
+    }
+  };
+  
+
   const routes = all_routes;
   const [isPasswordVisible, setPasswordVisible] = useState(false);
 
@@ -96,7 +127,7 @@ const Login = () => {
           <div className="col-lg-6 col-md-12 col-sm-12">
             <div className="row justify-content-center align-items-center vh-100 overflow-auto flex-wrap ">
               <div className="col-md-8 mx-auto p-4">
-                <form>
+                <form onSubmit={(e) => e.preventDefault()}>
                   <div>
                     <div className=" mx-auto mb-5 text-center">
                       <ImageWithBasePath
@@ -163,7 +194,10 @@ const Login = () => {
                               <i className="ti ti-mail" />
                             </span>
                             <input
-                              type="text"
+                              value={email}
+                              onChange={(e) => setEmail(e.target.value)}
+                              placeholder="Enter your email"
+                              type="email"
                               defaultValue=""
                               className="form-control"
                             />
@@ -171,6 +205,10 @@ const Login = () => {
                           <label className="form-label">Password</label>
                           <div className="pass-group">
                             <input
+                              value={password}
+                              onChange={(e) => setPassword(e.target.value)}
+                              placeholder="Enter your password"
+                              defaultValue=""
                               type={isPasswordVisible ? "text" : "password"}
                               className="pass-input form-control"
                             />
@@ -199,14 +237,14 @@ const Login = () => {
                           </div>
                         </div>
                       </div>
+                      {/* Error Message */}
+        {errorMessage && <p className="text-danger">{errorMessage}</p>}
+
                       <div className="p-4 pt-0">
                         <div className="mb-3">
-                          <Link
-                            to={routes.adminDashboard}
-                            className="btn btn-primary w-100"
-                          >
+                          <button onClick={handleLogin} className="btn btn-primary w-100">
                             Sign In
-                          </Link>
+                          </button>
                         </div>
                         <div className="text-center">
                           <h6 className="fw-normal text-dark mb-0">
